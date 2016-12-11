@@ -109,6 +109,7 @@
 				F85E1E6A1DF1624200393A2C /* Supporting Files */,
 				F88E80461D9939DC00E15793 /* Assets.xcassets */,
 				F88E803F1D9939DC00E15793 /* AppDelegate.swift */,
+				F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */,
 				F88E80431D9939DC00E15793 /* Main.storyboard */,
 				F87976641DB61306009FFC21 /* CustomTextField.swift */,
 				F88E80481D9939DC00E15793 /* LaunchScreen.storyboard */,
@@ -116,7 +117,6 @@
 				F8FCC3801DBE235C00F5AB38 /* CategoryTableViewCell.swift */,
 				F89D460C1DD4CEC700BABA45 /* TemplateTableViewCell.swift */,
 				F8E001DB1DE343FE00CD392F /* Атипичное Сельцо-Bridging-Header.h */,
-				F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */,
 			);
 			name = "Атипичное Сельцо";
 			sourceTree = "<group>";

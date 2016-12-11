@@ -16,6 +16,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
 
     // MARK: Properties
     @IBOutlet weak var simpleMemImage: UIImageView!
+    @IBOutlet weak var plusImageView: UIImageView!
     @IBOutlet weak var topTextField: CustomTextField!
     @IBOutlet weak var bottomTextField: CustomTextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -32,9 +33,16 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addImage))
+        gestureRecognizer.numberOfTapsRequired = 1
+        simpleMemImage.isUserInteractionEnabled = true
+        simpleMemImage.addGestureRecognizer(gestureRecognizer)
+        
         if (image != nil) {
+            plusImageView.isHidden = true
             simpleMemImage.image = image
         } else {
+            plusImageView.isHidden = false
             topTextField.isEnabled = false
             bottomTextField.isEnabled = false
         }
@@ -51,6 +59,10 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         
         topTextField.addTarget(self, action: #selector(SimpleMemViewController.textFieldDidChange(_:)), for: .editingChanged)
         bottomTextField.addTarget(self, action: #selector(SimpleMemViewController.textFieldDidChange(_:)), for: .editingChanged)
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        view.addSubview(activityIndicator)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,7 +83,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     }
 
     // MARK: Actions
-    @IBAction func addImage(_ sender: UIButton) {
+    func addImage(_ sender: UITapGestureRecognizer) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Шаблоны", style: .default, handler: openTemplates))
         alertController.addAction(UIAlertAction(title: "Галерея", style: .default, handler: openPhotoLibrary))
@@ -81,27 +93,22 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     }
     
     @IBAction func saveImage(_ sender: UIBarButtonItem) {
-        print("Понеслась")
+        activityIndicator.center = simpleMemImage.center
+        activityIndicator.startAnimating()
+        
         VKNetworking.shared.vkLogin(completion: {_ in
-            print("Авторизовался")
-            
-            let alertMessage = UIAlertController(title: nil, message: "Предложить данный мем к публикации?", preferredStyle: .alert)
+            let alertMessage = UIAlertController(title: nil, message: "Предложить мем к публикации?", preferredStyle: .alert)
             alertMessage.addAction(UIAlertAction(title: "Да", style: .default, handler: {_ in
-                self.activityIndicator.center = self.view.center
-                self.activityIndicator.hidesWhenStopped = true
-                self.activityIndicator.activityIndicatorViewStyle = .whiteLarge
-                self.view.addSubview(self.activityIndicator)
                 self.activityIndicator.startAnimating()
-                let VKRequest = VKApi.uploadWallPhotoRequest(self.simpleMemImage.image, parameters: VKImageParameters.jpegImage(withQuality: 100), userId: 0, groupId: 134615445)
                 
-                VKRequest?.execute(resultBlock: {(_ response: VKResponse?) -> Void in
-                    print("Залил картинку")
-                    
+                let VKRequest = VKApi.uploadWallPhotoRequest(self.simpleMemImage.image, parameters: VKImageParameters.jpegImage(withQuality: 100), userId: 0, groupId: VKNetworking.GROUP_ID)
+                
+                VKRequest?.execute(resultBlock: {(_ response: VKResponse?) -> Void in                    
                     let vkPhotoArray = response!.parsedModel as! VKPhotoArray
                     let photo = vkPhotoArray.object(at: 0) as VKPhoto
                     let photoAttachment = "photo\(photo.owner_id!)_\(photo.id!)"
                     
-                    let post = VKApi.wall().post([VK_API_ATTACHMENTS : photoAttachment, VK_API_OWNER_ID : "-134615445"])
+                    let post = VKApi.wall().post([VK_API_ATTACHMENTS : photoAttachment, VK_API_OWNER_ID : "-\(VKNetworking.GROUP_ID)"])
                     post?.execute(resultBlock: { (response) in
                         self.activityIndicator.stopAnimating()
                         print("Запостил картинку")
@@ -116,7 +123,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
             }))
             alertMessage.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))
             self.present(alertMessage, animated: true, completion: {_ in
-                print("Нарисовал alert")
+                self.activityIndicator.stopAnimating()
             })
             
             //let shareDialog = VKShareDialogController()

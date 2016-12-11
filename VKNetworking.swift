@@ -3,6 +3,7 @@ import VK_ios_sdk
 class VKNetworking: NSObject {
     static let shared = VKNetworking()
     static let VK_APP_ID = "5739524"
+    static let GROUP_ID = 134615445
     let permissions = NSArray(objects: "email", "wall", "photos") as [AnyObject]
     
     var userEmail = String()
