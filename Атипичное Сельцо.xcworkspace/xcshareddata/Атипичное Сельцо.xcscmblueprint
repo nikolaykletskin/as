@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8D264FA984D385C1DFAF7E1C4B0CA80284045961",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "73fbbb98-ed59-4e50-bd6b-9cbc5362e1df" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8D264FA984D385C1DFAF7E1C4B0CA80284045961" : 9223372036854775807,
+    "73fbbb98-ed59-4e50-bd6b-9cbc5362e1df" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0A8F8E6B-2452-4C2C-ABEB-F583FA70C785",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8D264FA984D385C1DFAF7E1C4B0CA80284045961" : "as\/",
+    "73fbbb98-ed59-4e50-bd6b-9cbc5362e1df" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Атипичное Сельцо",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Атипичное Сельцо.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn.1xbet.org\/www-1xbet",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "73fbbb98-ed59-4e50-bd6b-9cbc5362e1df"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nikolaykletskin\/as.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8D264FA984D385C1DFAF7E1C4B0CA80284045961"
+    }
+  ]
+}
