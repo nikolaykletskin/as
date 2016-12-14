@@ -20,6 +20,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     @IBOutlet weak var topTextField: CustomTextField!
     @IBOutlet weak var bottomTextField: CustomTextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var simpleMemImageHeightConstraint: NSLayoutConstraint!
     var image: UIImage? = nil
     var assetCollection: PHAssetCollection!
     var albumFound: Bool = false
@@ -41,10 +42,6 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         if (image != nil) {
             plusImageView.isHidden = true
             simpleMemImage.image = image
-        } else {
-            plusImageView.isHidden = false
-            topTextField.isEnabled = false
-            bottomTextField.isEnabled = false
         }
         
         self.view.backgroundColor = UIColor.nDarkColor()
@@ -78,14 +75,15 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let selectedImageAspectRatio = selectedImage.size.width / selectedImage.size.height
-        print(simpleMemImage.frame.size.height, simpleMemImage.bounds.size.height)
     
-        simpleMemImage.frame.size.height = simpleMemImage.frame.size.width / selectedImageAspectRatio
-        //simpleMemImage.bounds.size.height = simpleMemImage.bounds.size.width / selectedImageAspectRatio
+        let simpleMemImageheight = simpleMemImage.frame.size.width / selectedImageAspectRatio
+        simpleMemImageHeightConstraint.isActive = false
+        simpleMemImage.heightAnchor.constraint(equalToConstant: simpleMemImageheight).isActive = true
         simpleMemImage.contentMode = .scaleAspectFill
-        
         simpleMemImage.image = selectedImage
-        print(simpleMemImage.frame.size.height, simpleMemImage.bounds.size.height)
+        plusImageView.isHidden = true
+        topTextField.isEnabled = true
+        bottomTextField.isEnabled = true
         dismiss(animated: true, completion: nil)
     }
 
