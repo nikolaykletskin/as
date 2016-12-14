@@ -77,8 +77,15 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        simpleMemImage.contentMode = UIViewContentMode.scaleAspectFit
+        let selectedImageAspectRatio = selectedImage.size.width / selectedImage.size.height
+        print(simpleMemImage.frame.size.height, simpleMemImage.bounds.size.height)
+    
+        simpleMemImage.frame.size.height = simpleMemImage.frame.size.width / selectedImageAspectRatio
+        //simpleMemImage.bounds.size.height = simpleMemImage.bounds.size.width / selectedImageAspectRatio
+        simpleMemImage.contentMode = .scaleAspectFill
+        
         simpleMemImage.image = selectedImage
+        print(simpleMemImage.frame.size.height, simpleMemImage.bounds.size.height)
         dismiss(animated: true, completion: nil)
     }
 
