@@ -20,6 +20,8 @@
 		F88E80561D99672900E15793 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E80551D99672900E15793 /* LaunchScreenViewController.swift */; };
 		F89D460D1DD4CEC700BABA45 /* TemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D460C1DD4CEC700BABA45 /* TemplateTableViewCell.swift */; };
 		F89D460F1DD4CF6E00BABA45 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D460E1DD4CF6E00BABA45 /* Template.swift */; };
+		F89E53861E043A4100B153AF /* SimpleMem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E53851E043A4100B153AF /* SimpleMem.swift */; };
+		F89E53881E043F7D00B153AF /* Mem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E53871E043F7D00B153AF /* Mem.swift */; };
 		F8A7E4F91DA64DB800FB2ADC /* MemTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7E4F81DA64DB800FB2ADC /* MemTypesViewController.swift */; };
 		F8ED69311DAED19100B83F66 /* SimpleMemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED69301DAED19100B83F66 /* SimpleMemViewController.swift */; };
 		F8FCC37F1DBE1B2700F5AB38 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FCC37E1DBE1B2700F5AB38 /* Category.swift */; };
@@ -44,6 +46,8 @@
 		F88E80551D99672900E15793 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchScreenViewController.swift; path = "Атипичное Сельцо/LaunchScreenViewController.swift"; sourceTree = "<group>"; };
 		F89D460C1DD4CEC700BABA45 /* TemplateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemplateTableViewCell.swift; path = "Атипичное Сельцо/TemplateTableViewCell.swift"; sourceTree = "<group>"; };
 		F89D460E1DD4CF6E00BABA45 /* Template.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Template.swift; path = "Атипичное Сельцо/Template.swift"; sourceTree = "<group>"; };
+		F89E53851E043A4100B153AF /* SimpleMem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMem.swift; sourceTree = "<group>"; };
+		F89E53871E043F7D00B153AF /* Mem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mem.swift; sourceTree = "<group>"; };
 		F8A7E4F81DA64DB800FB2ADC /* MemTypesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemTypesViewController.swift; path = "Атипичное Сельцо/MemTypesViewController.swift"; sourceTree = "<group>"; };
 		F8E001DB1DE343FE00CD392F /* Атипичное Сельцо-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Атипичное Сельцо-Bridging-Header.h"; path = "Атипичное Сельцо/Атипичное Сельцо-Bridging-Header.h"; sourceTree = "<group>"; };
 		F8ED69301DAED19100B83F66 /* SimpleMemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMemViewController.swift; path = "Атипичное Сельцо/SimpleMemViewController.swift"; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		F8424DBF1DE34C0E00481CC6 /* Атипичное Сельцо */ = {
 			isa = PBXGroup;
 			children = (
+				F89E53841E043A2E00B153AF /* Lib */,
 				F80ACB7C1DF6A82500DC42EB /* Controller */,
 				F80ACB7B1DF6A81000DC42EB /* Model */,
 				F85E1E6A1DF1624200393A2C /* Supporting Files */,
@@ -145,6 +150,15 @@
 				F88E803C1D9939DC00E15793 /* Атипичное Сельцо.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F89E53841E043A2E00B153AF /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				F89E53851E043A4100B153AF /* SimpleMem.swift */,
+				F89E53871E043F7D00B153AF /* Mem.swift */,
+			);
+			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +296,11 @@
 				F88E80401D9939DC00E15793 /* AppDelegate.swift in Sources */,
 				F89D460D1DD4CEC700BABA45 /* TemplateTableViewCell.swift in Sources */,
 				F89D460F1DD4CF6E00BABA45 /* Template.swift in Sources */,
+				F89E53881E043F7D00B153AF /* Mem.swift in Sources */,
 				F85E1E6C1DF164AA00393A2C /* VKNetworking.swift in Sources */,
 				F8FCC37F1DBE1B2700F5AB38 /* Category.swift in Sources */,
 				F8FCC3811DBE235C00F5AB38 /* CategoryTableViewCell.swift in Sources */,
+				F89E53861E043A4100B153AF /* SimpleMem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

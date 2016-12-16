@@ -1,11 +1,3 @@
-//
-//  SimpleMemViewController.swift
-//  Атипичное Сельцо
-//
-//  Created by Николай Клёцкин on 10/12/16.
-//  Copyright © 2016 Nikolay Kletskin. All rights reserved.
-//
-
 import UIKit
 import Photos
 import VK_ios_sdk
@@ -44,6 +36,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
             simpleMemImage.image = image
         }
         
+        // UI
         self.view.backgroundColor = UIColor.nDarkColor()
         simpleMemImage.backgroundColor = UIColor.nBrightSkyBlueColor()
         simpleMemImage.layer.cornerRadius = 5
@@ -57,6 +50,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         topTextField.addTarget(self, action: #selector(SimpleMemViewController.textFieldDidChange(_:)), for: .editingChanged)
         bottomTextField.addTarget(self, action: #selector(SimpleMemViewController.textFieldDidChange(_:)), for: .editingChanged)
         
+        // Initialize activity indicator
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
         view.addSubview(activityIndicator)
@@ -64,7 +58,6 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -228,78 +221,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         // Renew image
         simpleMemImage.image = image
         
-        let imageSize = (simpleMemImage.image?.size)!
-        
-        // Getting top and bottom Text
-        let topText = NSString(string: topTextField.text!)
-        let bottomText = NSString(string: bottomTextField.text!)
-        
-        // Common font styles
-        let fontStyle = NSMutableParagraphStyle()
-        fontStyle.alignment = .center
-        let fontAttributes = [
-            NSStrokeColorAttributeName: UIColor.black,
-            NSStrokeWidthAttributeName: -2,
-            NSForegroundColorAttributeName: UIColor.white,
-            NSParagraphStyleAttributeName: fontStyle
-        ] as [String : Any]
-        
-        // Getting maximum height of text areas on image
-        let maxTextHeight = (simpleMemImage.image?.size.height)! / 4
-        
-        // Adjust top text font
-        let topTextFontSize = getFontSize(text: topText, img: simpleMemImage.image, fontSize: maxTextHeight, maxTextHeight: maxTextHeight, fontAttributes: fontAttributes)
-        let topTextFont = UIFont(name: "Helvetica Bold", size: topTextFontSize)!
-        
-        // Adjust bottom text font
-        let bottomTextFontSize = getFontSize(text: bottomText, img: simpleMemImage.image, fontSize: maxTextHeight, maxTextHeight: maxTextHeight, fontAttributes: fontAttributes)
-        let bottomTextFont = UIFont(name: "Helvetica Bold", size: bottomTextFontSize)!
-        
-        // Setting top text attributes
-        var topTextFontAttributes = fontAttributes
-        topTextFontAttributes[NSFontAttributeName] = topTextFont
-        
-        // Setting bottom text attributes
-        var bottomTextFontAttributes = fontAttributes
-        bottomTextFontAttributes[NSFontAttributeName] = bottomTextFont
-        
-        //Drawing
-        UIGraphicsBeginImageContext(imageSize)
-        simpleMemImage.image?.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: imageSize))
-        
-        // Draw top text
-        let topTextBoundingRect = topText.boundingRect(with: CGSize(width: imageSize.width, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: topTextFontAttributes, context: nil)
-        let topTextOriginPoint = CGPoint(x: (imageSize.width - topTextBoundingRect.width) / 2, y: 10)
-        let topTextRect = CGRect(origin: topTextOriginPoint, size: CGSize(width: topTextBoundingRect.width, height: topTextBoundingRect.height))
-        topText.draw(in: topTextRect, withAttributes: topTextFontAttributes)
-        
-        // Draw bottom text
-        let bottomTextBoundingRect = bottomText.boundingRect(with: CGSize(width: imageSize.width, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: bottomTextFontAttributes, context: nil)
-        let bottomTextOriginPoint = CGPoint(x: (imageSize.width - bottomTextBoundingRect.width) / 2, y: imageSize.height - bottomTextBoundingRect.height - 10)
-        let bottomTextRect = CGRect(origin: bottomTextOriginPoint, size: CGSize(width: bottomTextBoundingRect.width, height: bottomTextBoundingRect.height))
-        bottomText.draw(in: bottomTextRect, withAttributes: bottomTextFontAttributes)
-        
-        // Get result image
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        simpleMemImage.image = newImage
-    }
-    
-    func getFontSize(text: NSString, img: UIImage?, fontSize: CGFloat, maxTextHeight: CGFloat, fontAttributes: [String : Any]) -> CGFloat {
-        let font = UIFont(name: "Helvetica Bold", size: fontSize)!
-        
-        var newFontAttributes = fontAttributes
-        newFontAttributes[NSFontAttributeName] = font
-        
-        let boundingRect = text.boundingRect(with: CGSize(width: (img?.size.width)!, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: newFontAttributes, context: nil)
-        
-        if (boundingRect.height > maxTextHeight) {
-            //recursive with bigger fontSize
-            let newFontSize = fontSize - 1
-            return getFontSize(text: text, img: img, fontSize: newFontSize, maxTextHeight: maxTextHeight, fontAttributes: fontAttributes)
-        }
-        
-        return fontSize
+        let simpleMem = SimpleMem(image: image!, topText : NSString(string: topTextField.text!), bottomText: NSString(string: bottomTextField.text!))
+        simpleMemImage.image = simpleMem.draw()
     }
 }
