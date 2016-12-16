@@ -4,6 +4,8 @@ class SimpleMem: Mem {
     var bottomText: NSString
     var maxTextHeight: CGFloat
     
+    let textPadding: CGFloat = 10
+    
     init(image: UIImage, topText : NSString, bottomText: NSString) {
         self.image = image
         self.topText = topText
@@ -30,8 +32,8 @@ class SimpleMem: Mem {
     
     func drawText(text : NSString, fontAttributes: [String : Any]) {
         let boundingRect = text.boundingRect(with: CGSize(width: image.size.width, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: fontAttributes, context: nil)
-        let originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: 10)
-        //let bottomTextOriginPoint = CGPoint(x: (imageSize.width - bottomTextBoundingRect.width) / 2, y: image.size.height - boundingRect.height - 10)
+        let originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: textPadding)
+        //let bottomTextOriginPoint = CGPoint(x: (imageSize.width - bottomTextBoundingRect.width) / 2, y: image.size.height - boundingRect.height - textPadding)
         let textRect = CGRect(origin: originPoint, size: CGSize(width: boundingRect.width, height: boundingRect.height))
         text.draw(in: textRect, withAttributes: fontAttributes)
 
