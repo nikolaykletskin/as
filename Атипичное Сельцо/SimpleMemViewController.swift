@@ -71,6 +71,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         simpleMemImageHeightConstraint.isActive = false
         simpleMemImage.heightAnchor.constraint(equalToConstant: simpleMemImageheight).isActive = true
         simpleMemImage.contentMode = .scaleAspectFill
+        image = selectedImage
         simpleMemImage.image = selectedImage
         plusImageView.isHidden = true
         topTextField.isEnabled = true
@@ -96,6 +97,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
             let postConfirmationAlert = UIAlertController(title: nil, message: "Предложить мем к публикации?", preferredStyle: .alert)
             postConfirmationAlert.addAction(UIAlertAction(title: "Да", style: .default, handler: {_ in
                 self.activityIndicator.startAnimating()
+                
                 
                 let VKRequest = VKApi.uploadWallPhotoRequest(self.simpleMemImage.image, parameters: VKImageParameters.jpegImage(withQuality: 100), userId: 0, groupId: VKNetworking.GROUP_ID)
                 

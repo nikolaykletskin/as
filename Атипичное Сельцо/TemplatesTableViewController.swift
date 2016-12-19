@@ -30,11 +30,8 @@ class TemplatesTableViewController: UITableViewController {
     }
 
     // MARK: Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("templates \(templates.count)")
         return templates.count
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
