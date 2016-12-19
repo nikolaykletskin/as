@@ -18,26 +18,26 @@
                         <viewControllerLayoutGuide type="top" id="wuC-rg-xO0"/>
                         <viewControllerLayoutGuide type="bottom" id="4ok-FL-fE9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ahM-5R-KqJ">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="ahM-5R-KqJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkQ-WT-sca">
-                                <rect key="frame" x="16" y="84" width="343" height="247"/>
+                                <rect key="frame" x="16" y="84" width="343" height="215"/>
                                 <color key="backgroundColor" red="0.34143130111346753" green="0.59488549606154617" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="cCZ-4K-yfq" kind="show" id="cwZ-Ic-4Dv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMn-or-QU9">
-                                <rect key="frame" x="16" y="351" width="343" height="247"/>
+                                <rect key="frame" x="16" y="319" width="343" height="215"/>
                                 <color key="backgroundColor" red="0.73617912000350194" green="0.51842333181802769" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="Yj2-Q6-vC8" kind="show" id="k3W-m5-C1q"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UEd-ae-c8a">
-                                <rect key="frame" x="110.5" y="137.5" width="154" height="141.5"/>
+                                <rect key="frame" x="110.5" y="121.5" width="154" height="141.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SimpleMemIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kdv-9O-88p">
                                         <rect key="frame" x="26.5" y="0.0" width="101" height="104"/>
@@ -51,7 +51,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GYS-bn-fwS">
-                                <rect key="frame" x="96.5" y="403.5" width="182" height="142"/>
+                                <rect key="frame" x="96.5" y="355.5" width="182" height="142"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ExpressionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ofL-97-B4X">
                                         <rect key="frame" x="40.5" y="0.0" width="101" height="103"/>
@@ -102,36 +102,23 @@
                         <viewControllerLayoutGuide type="bottom" id="7s2-Tt-t4u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JOk-4L-1OQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DH-zr-u4T">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Обычный мем" id="1hr-wf-MMG">
-                                        <barButtonItem key="rightBarButtonItem" title="Готово" id="seq-V9-g6A">
-                                            <connections>
-                                                <action selector="saveImage:" destination="cCZ-4K-yfq" id="fUb-fX-Rh5"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BFj-N6-8K3">
                                 <rect key="frame" x="-4" y="64" width="383" height="410"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" restorationIdentifier="ContainerView" translatesAutoresizingMaskIntoConstraints="NO" id="jFx-jB-sWR">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IFt-Z9-3YG">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IFt-Z9-3YG">
                                                 <rect key="frame" x="20" y="20" width="343" height="230"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="230" id="Xvk-Nb-Q4e"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2BZ-EC-epD" customClass="CustomTextField" customModule="Атипичное_Сельцо" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2BZ-EC-epD" customClass="CustomTextField" customModule="Атипичное_Сельцо" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="270" width="343" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="9q3-UG-Ss8"/>
@@ -140,7 +127,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLl-2d-JTe" customClass="CustomTextField" customModule="Атипичное_Сельцо" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLl-2d-JTe" customClass="CustomTextField" customModule="Атипичное_Сельцо" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="340" width="343" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="qVp-gK-e4Q"/>
@@ -149,7 +136,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="PlusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="uqO-UC-BWg">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="PlusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="uqO-UC-BWg">
                                                 <rect key="frame" x="161.5" y="105.5" width="59" height="59"/>
                                             </imageView>
                                         </subviews>
@@ -158,13 +145,13 @@
                                             <constraint firstItem="2BZ-EC-epD" firstAttribute="trailing" secondItem="jFx-jB-sWR" secondAttribute="trailingMargin" constant="-12" id="1w0-Vy-GET"/>
                                             <constraint firstItem="aLl-2d-JTe" firstAttribute="top" secondItem="2BZ-EC-epD" secondAttribute="bottom" constant="20" id="2Ju-20-pf0"/>
                                             <constraint firstItem="2BZ-EC-epD" firstAttribute="leading" secondItem="jFx-jB-sWR" secondAttribute="leadingMargin" constant="12" id="C0C-nm-xEe"/>
+                                            <constraint firstItem="IFt-Z9-3YG" firstAttribute="top" secondItem="jFx-jB-sWR" secondAttribute="top" constant="20" id="CVu-fG-ilv"/>
                                             <constraint firstItem="2BZ-EC-epD" firstAttribute="top" secondItem="IFt-Z9-3YG" secondAttribute="bottom" constant="20" id="I5r-a3-aHm"/>
                                             <constraint firstItem="IFt-Z9-3YG" firstAttribute="leading" secondItem="jFx-jB-sWR" secondAttribute="leadingMargin" constant="12" id="K5y-cH-q80"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="aLl-2d-JTe" secondAttribute="trailing" constant="12" id="KFZ-tM-E5t"/>
                                             <constraint firstItem="uqO-UC-BWg" firstAttribute="centerY" secondItem="IFt-Z9-3YG" secondAttribute="centerY" id="S6L-uu-dNb"/>
                                             <constraint firstItem="uqO-UC-BWg" firstAttribute="centerX" secondItem="IFt-Z9-3YG" secondAttribute="centerX" id="fgK-W7-53f"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="aLl-2d-JTe" secondAttribute="leading" constant="-12" id="iGQ-oJ-pG0"/>
-                                            <constraint firstAttribute="height" constant="900" id="iXR-YQ-QSp"/>
                                             <constraint firstItem="IFt-Z9-3YG" firstAttribute="trailing" secondItem="jFx-jB-sWR" secondAttribute="trailingMargin" constant="-12" id="yv4-yX-5lO"/>
                                         </constraints>
                                     </view>
@@ -183,13 +170,15 @@
                             <constraint firstItem="jFx-jB-sWR" firstAttribute="width" secondItem="JOk-4L-1OQ" secondAttribute="width" id="dJh-KM-yOD"/>
                             <constraint firstItem="BFj-N6-8K3" firstAttribute="leading" secondItem="JOk-4L-1OQ" secondAttribute="leading" id="fsb-Vx-b8u"/>
                             <constraint firstItem="7s2-Tt-t4u" firstAttribute="top" secondItem="BFj-N6-8K3" secondAttribute="bottom" id="kxI-FP-NUV"/>
+                            <constraint firstItem="jFx-jB-sWR" firstAttribute="height" secondItem="JOk-4L-1OQ" secondAttribute="height" id="tfe-2T-oRO"/>
                             <constraint firstItem="BFj-N6-8K3" firstAttribute="top" secondItem="tQH-1a-a1u" secondAttribute="bottom" id="wdq-9q-CYT"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="bottomTextField" destination="aLl-2d-JTe" id="wNt-VX-W6A"/>
+                        <outlet property="containerView" destination="jFx-jB-sWR" id="hk9-Jn-s8J"/>
                         <outlet property="plusImageView" destination="uqO-UC-BWg" id="JIN-Xa-Nq2"/>
-                        <outlet property="saveButton" destination="seq-V9-g6A" id="CEI-e8-vOc"/>
                         <outlet property="simpleMemImage" destination="IFt-Z9-3YG" id="q7S-3P-DBJ"/>
                         <outlet property="simpleMemImageHeightConstraint" destination="Xvk-Nb-Q4e" id="HA6-ga-14s"/>
                         <outlet property="topTextField" destination="2BZ-EC-epD" id="g77-H1-7I5"/>

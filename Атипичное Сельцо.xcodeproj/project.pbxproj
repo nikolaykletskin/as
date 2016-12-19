@@ -12,6 +12,7 @@
 		F84EA4111DECCFD500DC4361 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84EA4101DECCFD500DC4361 /* CategoriesTableViewController.swift */; };
 		F85E1E6C1DF164AA00393A2C /* VKNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */; };
 		F87976651DB61306009FFC21 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87976641DB61306009FFC21 /* CustomTextField.swift */; };
+		F87CF8F01E07C9F8009B2718 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CF8EF1E07C9F8009B2718 /* ImageSaver.swift */; };
 		F88E80401D9939DC00E15793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E803F1D9939DC00E15793 /* AppDelegate.swift */; };
 		F88E80451D9939DC00E15793 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88E80431D9939DC00E15793 /* Main.storyboard */; };
 		F88E80471D9939DC00E15793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88E80461D9939DC00E15793 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		F84EA4101DECCFD500DC4361 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesTableViewController.swift; path = "Атипичное Сельцо/CategoriesTableViewController.swift"; sourceTree = "<group>"; };
 		F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKNetworking.swift; sourceTree = "<group>"; };
 		F87976641DB61306009FFC21 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = "Атипичное Сельцо/CustomTextField.swift"; sourceTree = "<group>"; };
+		F87CF8EF1E07C9F8009B2718 /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		F88E803C1D9939DC00E15793 /* Атипичное Сельцо.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Атипичное Сельцо.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88E803F1D9939DC00E15793 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Атипичное Сельцо/AppDelegate.swift"; sourceTree = "<group>"; };
 		F88E80441D9939DC00E15793 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 				F85E1E6A1DF1624200393A2C /* Supporting Files */,
 				F88E80461D9939DC00E15793 /* Assets.xcassets */,
 				F88E803F1D9939DC00E15793 /* AppDelegate.swift */,
-				F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */,
 				F88E80431D9939DC00E15793 /* Main.storyboard */,
 				F87976641DB61306009FFC21 /* CustomTextField.swift */,
 				F88E80481D9939DC00E15793 /* LaunchScreen.storyboard */,
@@ -157,6 +158,8 @@
 			children = (
 				F89E53851E043A4100B153AF /* SimpleMem.swift */,
 				F89E53871E043F7D00B153AF /* Mem.swift */,
+				F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */,
+				F87CF8EF1E07C9F8009B2718 /* ImageSaver.swift */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				F8FCC37F1DBE1B2700F5AB38 /* Category.swift in Sources */,
 				F8FCC3811DBE235C00F5AB38 /* CategoryTableViewCell.swift in Sources */,
 				F89E53861E043A4100B153AF /* SimpleMem.swift in Sources */,
+				F87CF8F01E07C9F8009B2718 /* ImageSaver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

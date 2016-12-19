@@ -3,20 +3,17 @@ import Photos
 import VK_ios_sdk
 
 class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    let albumName = "Атипичное Сельцо"
 
     // MARK: Properties
     @IBOutlet weak var simpleMemImage: UIImageView!
     @IBOutlet weak var plusImageView: UIImageView!
     @IBOutlet weak var topTextField: CustomTextField!
     @IBOutlet weak var bottomTextField: CustomTextField!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    let saveButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(saveImage))
     @IBOutlet weak var simpleMemImageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerView: UIView!
     var image: UIImage? = nil
-    var assetCollection: PHAssetCollection!
-    var albumFound: Bool = false
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var activityIndicator = UIActivityIndicatorView()
     
     override func viewWillAppear(_ animated: Bool) {
         saveButton.isEnabled = false
@@ -38,6 +35,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         
         // UI
         self.view.backgroundColor = UIColor.nDarkColor()
+        containerView.backgroundColor = UIColor.nDarkColor()
         simpleMemImage.backgroundColor = UIColor.nBrightSkyBlueColor()
         simpleMemImage.layer.cornerRadius = 5
         topTextField.attributedPlaceholder = NSAttributedString(string:"Текст сверху", attributes:[NSForegroundColorAttributeName: UIColor.nSlateColor()])
@@ -90,7 +88,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func saveImage(_ sender: UIBarButtonItem) {
+    func saveImage(_ sender: UIBarButtonItem) {
         activityIndicator.center = simpleMemImage.center
         activityIndicator.startAnimating()
         
@@ -124,57 +122,8 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
             self.present(postConfirmationAlert, animated: true, completion: {_ in
                 self.activityIndicator.stopAnimating()
             })
-            
-            //let shareDialog = VKShareDialogController()
-            //shareDialog
-
-//            let shareDialog = VKShareDialogController()
-//            //1
-//            shareDialog.text = "This post created using #vksdk #ios"
-//            let uploadImage = VKUploadImage(image: self.simpleMemImage.image, andParams: nil)
-//            shareDialog.uploadImages = [uploadImage as Any]
-//            //3
-//            shareDialog.shareLink = VKShareLink(title: "Super puper link, but nobody knows", link: URL(string: "https://vk.com/tiredbullshit_arts")!)
-//            //4
-//            shareDialog.completionHandler = {(_ controller: VKShareDialogController?, _ result: VKShareDialogControllerResult) -> Void in
-//                print("completed")
-//                self.dismiss(animated: true, completion: { _ in })
-//                print("hello")
-//            }
-//            //5
-//            self.present(shareDialog, animated: true, completion: { _ in })//6 }
         })
         
-        
-//        let fetchOptions = PHFetchOptions()
-//        fetchOptions.predicate = NSPredicate(format: "title = %@", albumName)
-//        let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
-//        if (collection.firstObject != nil) {
-//            albumFound = true
-//            assetCollection = collection.firstObject! as PHAssetCollection
-//        } else {
-//            PHPhotoLibrary.shared().performChanges({
-//                _ = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: self.albumName)
-//            },
-//            completionHandler: {(success: Bool, error: Error?) in
-//                NSLog("Creation of folder - %@", (success ? "Success" : "error"))
-//                self.albumFound = success
-//            })
-//        }
-//        
-//        if (albumFound) {
-//            PHPhotoLibrary.shared().performChanges({
-//                // Request creating an asset from the image.
-//                let creationRequest = PHAssetChangeRequest.creationRequestForAsset(from: self.simpleMemImage.image!)
-//                // Request editing the album.
-//                guard let addAssetRequest = PHAssetCollectionChangeRequest(for: self.assetCollection)
-//                    else { return }
-//                // Get a placeholder for the new asset and add it to the album editing request.
-//                addAssetRequest.addAssets([creationRequest.placeholderForCreatedAsset!] as NSArray)
-//                }, completionHandler: { success, error in
-//                    if !success { NSLog("error creating asset: \(error)") }
-//            })
-//        }
     }
     
     func openTemplates(_ sender : UIAlertAction) {
@@ -221,7 +170,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         // Renew image
         simpleMemImage.image = image
         
-        let simpleMem = SimpleMem(image: image!, topText : NSString(string: topTextField.text!), bottomText: NSString(string: bottomTextField.text!))
+        let simpleMem = SimpleMem(image: simpleMemImage.image!, topText : NSString(string: topTextField.text!), bottomText: NSString(string: bottomTextField.text!))
         simpleMemImage.image = simpleMem.draw()
     }
 }
