@@ -4,8 +4,6 @@ class SimpleMem: Mem {
     var bottomText: NSString
     var maxTextHeight: CGFloat
     
-    let textPadding: CGFloat = 10
-    
     enum textType {
         case top
         case bottom
