@@ -11,6 +11,7 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     @IBOutlet weak var bottomTextField: CustomTextField!
     let saveButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(saveImage))
     @IBOutlet weak var simpleMemImageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     var image: UIImage? = nil
     var activityIndicator = UIActivityIndicatorView()
@@ -66,6 +67,8 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let selectedImageAspectRatio = selectedImage.size.width / selectedImage.size.height
+        
+        print(self.view.frame.size.height, scrollView.contentSize.height, containerView.bounds.size.height)
     
         let simpleMemImageheight = simpleMemImage.frame.size.width / selectedImageAspectRatio
         simpleMemImageHeightConstraint.isActive = false
@@ -73,12 +76,17 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         simpleMemImage.contentMode = .scaleAspectFill
         image = selectedImage
         simpleMemImage.image = selectedImage
+        
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: containerView.frame.size.height)
+        
+        print(self.view.frame.size.height, scrollView.contentSize.height, containerView.bounds.size.height)
+        
         plusImageView.isHidden = true
         topTextField.isEnabled = true
         bottomTextField.isEnabled = true
         dismiss(animated: true, completion: nil)
     }
-
+    
     // MARK: Actions
     func addImage(_ sender: UITapGestureRecognizer) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -87,6 +95,30 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         alertController.addAction(UIAlertAction(title: "Сделать фотографию", style: .default, handler: shootPhoto))
         alertController.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func openTemplates(_ sender : UIAlertAction) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    func openPhotoLibrary(_ sender : UIAlertAction) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func shootPhoto(_ sender: UIAlertAction) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = false
+        picker.sourceType = .camera
+        picker.cameraCaptureMode = .photo
+        picker.modalPresentationStyle = .fullScreen
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
     }
     
     func saveImage(_ sender: UIBarButtonItem) {
@@ -128,29 +160,6 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         
     }
     
-    func openTemplates(_ sender : UIAlertAction) {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let nextViewController = storyboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
-        self.navigationController?.pushViewController(nextViewController, animated: true)
-    }
-    
-    func openPhotoLibrary(_ sender : UIAlertAction) {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        
-        present(picker, animated: true, completion: nil)
-    }
-    
-    func shootPhoto(_ sender: UIAlertAction) {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = false
-        picker.sourceType = .camera
-        picker.cameraCaptureMode = .photo
-        picker.modalPresentationStyle = .fullScreen
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
-    }
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
