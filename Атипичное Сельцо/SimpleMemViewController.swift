@@ -67,17 +67,16 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let selectedImageAspectRatio = selectedImage.size.width / selectedImage.size.height
-        
-        print(self.view.frame.size.height, scrollView.contentSize.height, containerView.bounds.size.height)
-    
-        let simpleMemImageheight = simpleMemImage.frame.size.width / selectedImageAspectRatio
+        let simpleMemImageOldHeight = simpleMemImage.frame.size.height
+        let simpleMemImageNewHeight = simpleMemImage.frame.size.width / selectedImageAspectRatio
+        let heightDifference = simpleMemImageNewHeight - simpleMemImageOldHeight
         simpleMemImageHeightConstraint.isActive = false
-        simpleMemImage.heightAnchor.constraint(equalToConstant: simpleMemImageheight).isActive = true
+        simpleMemImage.heightAnchor.constraint(equalToConstant: simpleMemImageNewHeight).isActive = true
         simpleMemImage.contentMode = .scaleAspectFill
         image = selectedImage
         simpleMemImage.image = selectedImage
         
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: containerView.frame.size.height)
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: scrollView.contentSize.height + heightDifference)
         
         print(self.view.frame.size.height, scrollView.contentSize.height, containerView.bounds.size.height)
         

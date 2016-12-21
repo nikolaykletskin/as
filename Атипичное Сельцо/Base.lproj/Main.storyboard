@@ -166,11 +166,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jFx-jB-sWR" firstAttribute="height" secondItem="JOk-4L-1OQ" secondAttribute="height" id="BUh-5t-lji"/>
                             <constraint firstAttribute="trailing" secondItem="BFj-N6-8K3" secondAttribute="trailing" id="T2e-IG-AcM"/>
                             <constraint firstItem="jFx-jB-sWR" firstAttribute="width" secondItem="JOk-4L-1OQ" secondAttribute="width" id="dJh-KM-yOD"/>
                             <constraint firstItem="BFj-N6-8K3" firstAttribute="leading" secondItem="JOk-4L-1OQ" secondAttribute="leading" id="fsb-Vx-b8u"/>
                             <constraint firstItem="7s2-Tt-t4u" firstAttribute="top" secondItem="BFj-N6-8K3" secondAttribute="bottom" id="kxI-FP-NUV"/>
+                            <constraint firstItem="jFx-jB-sWR" firstAttribute="height" secondItem="JOk-4L-1OQ" secondAttribute="height" id="tFJ-Wu-xwO"/>
                             <constraint firstItem="BFj-N6-8K3" firstAttribute="top" secondItem="tQH-1a-a1u" secondAttribute="bottom" id="wdq-9q-CYT"/>
                         </constraints>
                     </view>
