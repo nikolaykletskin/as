@@ -8,8 +8,6 @@ class Mem {
         var newFontAttributes = fontAttributes
         newFontAttributes[NSFontAttributeName] = font
         
-        print((img?.size.width)!, (img?.size.width)! - textPadding * 2)
-        
         let boundingRect = text.boundingRect(with: CGSize(width: (img?.size.width)! - textPadding * 2, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: newFontAttributes, context: nil)
         
         if (boundingRect.height > maxTextHeight) {

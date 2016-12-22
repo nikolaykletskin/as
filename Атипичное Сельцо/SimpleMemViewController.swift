@@ -78,8 +78,6 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: scrollView.contentSize.height + heightDifference)
         
-        print(self.view.frame.size.height, scrollView.contentSize.height, containerView.bounds.size.height)
-        
         plusImageView.isHidden = true
         topTextField.isEnabled = true
         bottomTextField.isEnabled = true
@@ -124,11 +122,10 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         activityIndicator.center = simpleMemImage.center
         activityIndicator.startAnimating()
         
-        VKNetworking.shared.vkLogin(completion: {_ in
+        VKNetworking.shared.login(completion: {_ in
             let postConfirmationAlert = UIAlertController(title: nil, message: "Предложить мем к публикации?", preferredStyle: .alert)
             postConfirmationAlert.addAction(UIAlertAction(title: "Да", style: .default, handler: {_ in
                 self.activityIndicator.startAnimating()
-                
                 
                 let VKRequest = VKApi.uploadWallPhotoRequest(self.simpleMemImage.image, parameters: VKImageParameters.jpegImage(withQuality: 100), userId: 0, groupId: VKNetworking.GROUP_ID)
                 
@@ -140,21 +137,22 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
                     let post = VKApi.wall().post([VK_API_ATTACHMENTS : photoAttachment, VK_API_OWNER_ID : "-\(VKNetworking.GROUP_ID)"])
                     post?.execute(resultBlock: { (response) in
                         self.activityIndicator.stopAnimating()
-                        let postResultAlert = UIAlertController(title: nil, message: "Мем предложен к публикации", preferredStyle: .alert)
-                        self.present(postResultAlert, animated: true, completion: {_ in})
+                        self.alert(message: "Мем предложен к публикации")
                     }, errorBlock: { (error) in
-                        if error != nil {
-                            print(error!)
-                        }
+                        self.activityIndicator.stopAnimating()
+                        self.alert(message: "При публикации произошла ошибка (код: \((error as! NSError).code).")
                     })
                 }, errorBlock: {(_ error: Error?) -> Void in
-                    print("failure \(error)")
+                    self.activityIndicator.stopAnimating()
+                    self.alert(message: "При публикации произошла ошибка (код: \((error as! NSError).code).")
                 })
             }))
             postConfirmationAlert.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))
             self.present(postConfirmationAlert, animated: true, completion: {_ in
                 self.activityIndicator.stopAnimating()
             })
+        }, failure: {(_ error: Error?) -> Void in
+            self.alert(message: "При авторизации произошла ошибка (код: \((error as! NSError).code).")
         })
         
     }

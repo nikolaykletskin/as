@@ -11,6 +11,7 @@
 		F80ACC631DD37620007A50C6 /* TemplatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ACC621DD37620007A50C6 /* TemplatesTableViewController.swift */; };
 		F84EA4111DECCFD500DC4361 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84EA4101DECCFD500DC4361 /* CategoriesTableViewController.swift */; };
 		F85E1E6C1DF164AA00393A2C /* VKNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */; };
+		F86C877C1E0BCDE2006BD25C /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C877B1E0BCDE2006BD25C /* Modal.swift */; };
 		F87976651DB61306009FFC21 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87976641DB61306009FFC21 /* CustomTextField.swift */; };
 		F87CF8F01E07C9F8009B2718 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CF8EF1E07C9F8009B2718 /* ImageSaver.swift */; };
 		F88E80401D9939DC00E15793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E803F1D9939DC00E15793 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		F80ACC621DD37620007A50C6 /* TemplatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemplatesTableViewController.swift; path = "Атипичное Сельцо/TemplatesTableViewController.swift"; sourceTree = "<group>"; };
 		F84EA4101DECCFD500DC4361 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesTableViewController.swift; path = "Атипичное Сельцо/CategoriesTableViewController.swift"; sourceTree = "<group>"; };
 		F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKNetworking.swift; sourceTree = "<group>"; };
+		F86C877B1E0BCDE2006BD25C /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		F87976641DB61306009FFC21 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = "Атипичное Сельцо/CustomTextField.swift"; sourceTree = "<group>"; };
 		F87CF8EF1E07C9F8009B2718 /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		F88E803C1D9939DC00E15793 /* Атипичное Сельцо.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Атипичное Сельцо.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 				F89E53871E043F7D00B153AF /* Mem.swift */,
 				F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */,
 				F87CF8EF1E07C9F8009B2718 /* ImageSaver.swift */,
+				F86C877B1E0BCDE2006BD25C /* Modal.swift */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				F8A7E4F91DA64DB800FB2ADC /* MemTypesViewController.swift in Sources */,
 				F88E80401D9939DC00E15793 /* AppDelegate.swift in Sources */,
 				F89D460D1DD4CEC700BABA45 /* TemplateTableViewCell.swift in Sources */,
+				F86C877C1E0BCDE2006BD25C /* Modal.swift in Sources */,
 				F89D460F1DD4CF6E00BABA45 /* Template.swift in Sources */,
 				F89E53881E043F7D00B153AF /* Mem.swift in Sources */,
 				F85E1E6C1DF164AA00393A2C /* VKNetworking.swift in Sources */,
