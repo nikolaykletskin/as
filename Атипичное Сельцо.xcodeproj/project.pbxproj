@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B53E1B9ADB3FC0C9349AA69 /* Pods_________________.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB475773BF71337514FF6AE4 /* Pods_________________.framework */; };
 		F80ACC631DD37620007A50C6 /* TemplatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ACC621DD37620007A50C6 /* TemplatesTableViewController.swift */; };
+		F84140561E1AD3C600867CDA /* ExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84140551E1AD3C600867CDA /* ExpressionViewController.swift */; };
 		F84EA4111DECCFD500DC4361 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84EA4101DECCFD500DC4361 /* CategoriesTableViewController.swift */; };
 		F85E1E6C1DF164AA00393A2C /* VKNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */; };
 		F86C877C1E0BCDE2006BD25C /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C877B1E0BCDE2006BD25C /* Modal.swift */; };
@@ -35,6 +36,7 @@
 		CB475773BF71337514FF6AE4 /* Pods_________________.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_________________.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F07A54810CBED89AA779B /* Pods-Атипичное Сельцо.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Атипичное Сельцо.release.xcconfig"; path = "Pods/Target Support Files/Pods-Атипичное Сельцо/Pods-Атипичное Сельцо.release.xcconfig"; sourceTree = "<group>"; };
 		F80ACC621DD37620007A50C6 /* TemplatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemplatesTableViewController.swift; path = "Атипичное Сельцо/TemplatesTableViewController.swift"; sourceTree = "<group>"; };
+		F84140551E1AD3C600867CDA /* ExpressionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpressionViewController.swift; path = "Атипичное Сельцо/ExpressionViewController.swift"; sourceTree = "<group>"; };
 		F84EA4101DECCFD500DC4361 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesTableViewController.swift; path = "Атипичное Сельцо/CategoriesTableViewController.swift"; sourceTree = "<group>"; };
 		F85E1E6B1DF164AA00393A2C /* VKNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKNetworking.swift; sourceTree = "<group>"; };
 		F86C877B1E0BCDE2006BD25C /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
@@ -105,13 +107,25 @@
 				F8A7E4F81DA64DB800FB2ADC /* MemTypesViewController.swift */,
 				F80ACC621DD37620007A50C6 /* TemplatesTableViewController.swift */,
 				F88E80551D99672900E15793 /* LaunchScreenViewController.swift */,
+				F84140551E1AD3C600867CDA /* ExpressionViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		F84140571E1ADA8700867CDA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F8FCC3801DBE235C00F5AB38 /* CategoryTableViewCell.swift */,
+				F89D460C1DD4CEC700BABA45 /* TemplateTableViewCell.swift */,
+				F87976641DB61306009FFC21 /* CustomTextField.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		F8424DBF1DE34C0E00481CC6 /* Атипичное Сельцо */ = {
 			isa = PBXGroup;
 			children = (
+				F84140571E1ADA8700867CDA /* UI */,
 				F89E53841E043A2E00B153AF /* Lib */,
 				F80ACB7C1DF6A82500DC42EB /* Controller */,
 				F80ACB7B1DF6A81000DC42EB /* Model */,
@@ -119,11 +133,8 @@
 				F88E80461D9939DC00E15793 /* Assets.xcassets */,
 				F88E803F1D9939DC00E15793 /* AppDelegate.swift */,
 				F88E80431D9939DC00E15793 /* Main.storyboard */,
-				F87976641DB61306009FFC21 /* CustomTextField.swift */,
 				F88E80481D9939DC00E15793 /* LaunchScreen.storyboard */,
 				F88E80511D99445300E15793 /* NAdditions.swift */,
-				F8FCC3801DBE235C00F5AB38 /* CategoryTableViewCell.swift */,
-				F89D460C1DD4CEC700BABA45 /* TemplateTableViewCell.swift */,
 				F8E001DB1DE343FE00CD392F /* Атипичное Сельцо-Bridging-Header.h */,
 			);
 			name = "Атипичное Сельцо";
@@ -308,6 +319,7 @@
 				F8FCC37F1DBE1B2700F5AB38 /* Category.swift in Sources */,
 				F8FCC3811DBE235C00F5AB38 /* CategoryTableViewCell.swift in Sources */,
 				F89E53861E043A4100B153AF /* SimpleMem.swift in Sources */,
+				F84140561E1AD3C600867CDA /* ExpressionViewController.swift in Sources */,
 				F87CF8F01E07C9F8009B2718 /* ImageSaver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

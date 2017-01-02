@@ -25,10 +25,6 @@ class Mem {
             return getFontSize(text: text, img: img, fontSize: newFontSize, maxTextHeight: maxTextHeight, fontAttributes: fontAttributes)
         }
         
-        print("img size \((img?.size.width)!) x \((img?.size.height)!)")
-        print("text padding \(textPadding * 2)")
-        print("rect size \(boundingRect.width) x \(boundingRect.height)")
-        
         return fontSize
     }
 }
