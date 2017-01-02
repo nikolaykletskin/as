@@ -1,5 +1,4 @@
 class SimpleMem: Mem {
-    var image: UIImage
     var topText: NSString
     var bottomText: NSString
     var maxTextHeight: CGFloat
@@ -10,13 +9,14 @@ class SimpleMem: Mem {
     }
     
     init(image: UIImage, topText : NSString, bottomText: NSString) {
-        self.image = image
         self.topText = topText
         self.bottomText = bottomText
         self.maxTextHeight = image.size.height / 4
+        
+        super.init(image: image)
     }
     
-    func getFontAttributes(text: NSString)-> [String: Any] {
+    private func getFontAttributes(text: NSString)-> [String: Any] {
         let fontStyle = NSMutableParagraphStyle()
         fontStyle.alignment = .center
         var fontAttributes = [
@@ -33,9 +33,10 @@ class SimpleMem: Mem {
         return fontAttributes
     }
     
-    func drawText(text : NSString, fontAttributes: [String : Any], type: textType) {
-        let boundingRect = text.boundingRect(with: CGSize(width: image.size.width, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: fontAttributes, context: nil)
+    private func drawText(text : NSString, fontAttributes: [String : Any], type: textType) {
+        let boundingRect = text.boundingRect(with: CGSize(width: image.size.width - textPadding * 2, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: fontAttributes, context: nil)
         var originPoint = CGPoint()
+        
         switch type {
             case .top:
                 originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: textPadding)
@@ -45,18 +46,21 @@ class SimpleMem: Mem {
 
         let textRect = CGRect(origin: originPoint, size: CGSize(width: boundingRect.width, height: boundingRect.height))
         text.draw(in: textRect, withAttributes: fontAttributes)
-
     }
     
     func draw() -> UIImage? {
         UIGraphicsBeginImageContext(image.size)
         image.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: image.size))
-        
-        let topTextFontAttributes = getFontAttributes(text: topText)
-        let bottomTextFontAttributes = getFontAttributes(text: bottomText)
 
-        drawText(text: topText, fontAttributes: topTextFontAttributes, type: .top)
-        drawText(text: bottomText, fontAttributes: bottomTextFontAttributes, type: .bottom)
+        if (topText != "") {
+            let topTextFontAttributes = getFontAttributes(text: topText)
+            drawText(text: topText, fontAttributes: topTextFontAttributes, type: .top)
+        }
+        
+        if (bottomText != "") {
+            let bottomTextFontAttributes = getFontAttributes(text: bottomText)
+            drawText(text: bottomText, fontAttributes: bottomTextFontAttributes, type: .bottom)
+        }
 
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
