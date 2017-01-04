@@ -56,12 +56,18 @@ class TemplatesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let nextViewController = storyboard.instantiateViewController(withIdentifier: "SimpleMemViewController") as! SimpleMemViewController
+        var nextViewController: MemViewController?
+        switch AppState.shared.memType! {
+        case .simpleMem:
+            nextViewController = storyboard.instantiateViewController(withIdentifier: "SimpleMemViewController") as! SimpleMemViewController
+        case .expression:
+            nextViewController = storyboard.instantiateViewController(withIdentifier: "ExpressionViewController") as! ExpressionViewController
+        }
         
-        nextViewController.image = templates[indexPath.row].previewImage!
-        
-        
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        if (nextViewController != nil) {
+            nextViewController?.image = templates[indexPath.row].previewImage!
+            self.navigationController?.pushViewController(nextViewController!, animated: true)
+        }
     }
     
 }

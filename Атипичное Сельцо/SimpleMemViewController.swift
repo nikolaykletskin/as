@@ -2,7 +2,7 @@ import UIKit
 import Photos
 import VK_ios_sdk
 
-class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SimpleMemViewController: MemViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: Properties
     @IBOutlet weak var simpleMemImage: UIImageView!
@@ -13,7 +13,6 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
     @IBOutlet weak var simpleMemImageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
-    var image: UIImage? = nil
     var activityIndicator = UIActivityIndicatorView()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +52,8 @@ class SimpleMemViewController: UIViewController, UITextFieldDelegate, UIImagePic
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
         view.addSubview(activityIndicator)
+        
+        AppState.shared.memType = .simpleMem
     }
 
     override func didReceiveMemoryWarning() {

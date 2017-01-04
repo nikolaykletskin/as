@@ -1,11 +1,10 @@
 import UIKit
 
-class ExpressionViewController: UIViewController, UITextFieldDelegate {
+class ExpressionViewController: MemViewController, UITextFieldDelegate {
 
     @IBOutlet weak var expressionImageView: UIImageView!
     @IBOutlet weak var expressionTextField: CustomTextField!
     @IBOutlet weak var plusImageView: UIImageView!
-    var image: UIImage? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +25,8 @@ class ExpressionViewController: UIViewController, UITextFieldDelegate {
             plusImageView.isHidden = true
             expressionImageView.image = image
         }
-
+        
+        AppState.shared.memType = .expression
     }
 
     override func didReceiveMemoryWarning() {
