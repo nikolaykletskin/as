@@ -1,6 +1,6 @@
 import UIKit
 
-class ExpressionViewController: MemViewController, UITextFieldDelegate {
+class ExpressionViewController: MemViewController {
 
     @IBOutlet weak var expressionImageView: UIImageView!
     @IBOutlet weak var expressionTextField: CustomTextField!
@@ -37,6 +37,19 @@ class ExpressionViewController: MemViewController, UITextFieldDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "TemplatesTableViewController") as! TemplatesTableViewController
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    override func textFieldDidChange(_ textField: UITextField) {
+        if (expressionImageView.image == nil) {
+            return
+        } else {
+            saveButton.isEnabled = true
+        }
+        
+        // Renew image
+        expressionImageView.image = image
+        let expression = Expression(image: expressionImageView.image!, text: NSString(string: textField.text!))
+        expression.image = Expression.draw()
     }
 
 }
