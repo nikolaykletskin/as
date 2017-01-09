@@ -47,11 +47,6 @@ class SimpleMemViewController: MemViewController, UIImagePickerControllerDelegat
         topTextField.addTarget(self, action: #selector(SimpleMemViewController.textFieldDidChange(_:)), for: .editingChanged)
         bottomTextField.addTarget(self, action: #selector(SimpleMemViewController.textFieldDidChange(_:)), for: .editingChanged)
         
-        // Initialize activity indicator
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = .whiteLarge
-        view.addSubview(activityIndicator)
-        
         AppState.shared.memType = .simpleMem
     }
 

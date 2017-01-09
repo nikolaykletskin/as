@@ -4,8 +4,10 @@ class Expression: Mem {
     
     init(image: UIImage, text: NSString) {
         self.text = text
-        self.maxTextHeight = image.size.height / 3
+        let oneThirdHeight = image.size.height / 3
+        self.maxTextHeight = oneThirdHeight
         super.init(image: image)
+        self.textPadding["vertical"] = oneThirdHeight
     }
     
     private func getFontAttributes(text: NSString)-> [String: Any] {
@@ -26,8 +28,8 @@ class Expression: Mem {
     }
     
     private func drawText(text : NSString, fontAttributes: [String : Any]) {
-        let boundingRect = text.boundingRect(with: CGSize(width: image.size.width - textPadding * 2, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: fontAttributes, context: nil)
-        let originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: textPadding)
+        let boundingRect = text.boundingRect(with: CGSize(width: image.size.width - textPadding["horizontal"]! * 2, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: fontAttributes, context: nil)
+        let originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: textPadding["vertical"]!)
         
         let textRect = CGRect(origin: originPoint, size: CGSize(width: boundingRect.width, height: boundingRect.height))
         text.draw(in: textRect, withAttributes: fontAttributes)

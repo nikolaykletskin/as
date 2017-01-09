@@ -5,6 +5,12 @@ class ExpressionViewController: MemViewController {
     @IBOutlet weak var expressionImageView: UIImageView!
     @IBOutlet weak var expressionTextField: CustomTextField!
     @IBOutlet weak var plusImageView: UIImageView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        imageView = expressionImageView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +26,7 @@ class ExpressionViewController: MemViewController {
         expressionTextField.attributedPlaceholder = NSAttributedString(string:"Текст", attributes:[NSForegroundColorAttributeName: UIColor.nSlateColor()])
         
         expressionTextField.delegate = self
+        expressionTextField.addTarget(self, action: #selector(ExpressionViewController.textFieldDidChange(_:)), for: .editingChanged)
         
         if (image != nil) {
             plusImageView.isHidden = true

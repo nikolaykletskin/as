@@ -9,6 +9,11 @@ class MemViewController: UIViewController, UITextFieldDelegate, UINavigationCont
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize activity indicator
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        view.addSubview(activityIndicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
