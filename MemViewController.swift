@@ -1,8 +1,11 @@
 import UIKit
+import VK_ios_sdk
 
-class MemViewController: UIViewController, UITextFieldDelegate {
+class MemViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     let saveButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(saveImage))
     var image: UIImage?
+    var activityIndicator = UIActivityIndicatorView()
+    var imageView: UIImageView! = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +20,8 @@ class MemViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func saveImage(_ sender: UIBarButtonItem) {
-        activityIndicator.center = simpleMemImage.center
+    func saveImage(_ sender: UIBarButtonItem, imageView: UIImageView) {
+        activityIndicator.center = imageView.center
         activityIndicator.startAnimating()
         
         VKNetworking.shared.login(completion: {_ in
@@ -26,21 +29,22 @@ class MemViewController: UIViewController, UITextFieldDelegate {
             postConfirmationAlert.addAction(UIAlertAction(title: "Да", style: .default, handler: {_ in
                 self.activityIndicator.startAnimating()
                 
-                let VKRequest = VKApi.uploadWallPhotoRequest(self.simpleMemImage.image, parameters: VKImageParameters.jpegImage(withQuality: 100), userId: 0, groupId: VKNetworking.GROUP_ID)
+                let VKRequest = VKApi.uploadWallPhotoRequest(imageView.image, parameters: VKImageParameters.jpegImage(withQuality: 100), userId: 0, groupId: VKNetworking.GROUP_ID)
                 
                 VKRequest?.execute(resultBlock: {(_ response: VKResponse?) -> Void in
-                    let vkPhotoArray = response!.parsedModel as! VKPhotoArray
-                    let photo = vkPhotoArray.object(at: 0) as VKPhoto
-                    let photoAttachment = "photo\(photo.owner_id!)_\(photo.id!)"
-                    
-                    let post = VKApi.wall().post([VK_API_ATTACHMENTS : photoAttachment, VK_API_OWNER_ID : "-\(VKNetworking.GROUP_ID)"])
-                    post?.execute(resultBlock: { (response) in
-                        self.activityIndicator.stopAnimating()
-                        self.alert(message: "Мем предложен к публикации")
-                    }, errorBlock: { (error) in
-                        self.activityIndicator.stopAnimating()
-                        self.alert(message: "При публикации произошла ошибка (код: \((error as! NSError).code).")
-                    })
+                    if let vkPhotoArray = response!.parsedModel as? VKPhotoArray {
+                        let photo = vkPhotoArray.object(at: 0) as VKPhoto
+                        let photoAttachment = "photo\(photo.owner_id!)_\(photo.id!)"
+                        
+                        let post = VKApi.wall().post([VK_API_ATTACHMENTS : photoAttachment, VK_API_OWNER_ID : "-\(VKNetworking.GROUP_ID)"])
+                        post?.execute(resultBlock: { (response) in
+                            self.activityIndicator.stopAnimating()
+                            self.alert(message: "Мем предложен к публикации")
+                        }, errorBlock: { (error) in
+                            self.activityIndicator.stopAnimating()
+                            self.alert(message: "При публикации произошла ошибка (код: \((error as! NSError).code).")
+                        })
+                    }
                 }, errorBlock: {(_ error: Error?) -> Void in
                     self.activityIndicator.stopAnimating()
                     self.alert(message: "При публикации произошла ошибка (код: \((error as! NSError).code).")

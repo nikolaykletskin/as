@@ -1,8 +1,8 @@
 import UIKit
 import Photos
-import VK_ios_sdk
 
-class SimpleMemViewController: MemViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+class SimpleMemViewController: MemViewController, UIImagePickerControllerDelegate {
 
     // MARK: Properties
     @IBOutlet weak var simpleMemImage: UIImageView!
@@ -13,7 +13,11 @@ class SimpleMemViewController: MemViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var simpleMemImageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
-    var activityIndicator = UIActivityIndicatorView()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        imageView = simpleMemImage
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

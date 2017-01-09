@@ -49,7 +49,7 @@ class ExpressionViewController: MemViewController {
         // Renew image
         expressionImageView.image = image
         let expression = Expression(image: expressionImageView.image!, text: NSString(string: textField.text!))
-        expression.image = Expression.draw()
+        expressionImageView.image = expression.draw()
     }
 
 }
