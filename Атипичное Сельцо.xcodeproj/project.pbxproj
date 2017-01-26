@@ -28,6 +28,7 @@
 		F89E53861E043A4100B153AF /* SimpleMem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E53851E043A4100B153AF /* SimpleMem.swift */; };
 		F89E53881E043F7D00B153AF /* Mem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E53871E043F7D00B153AF /* Mem.swift */; };
 		F8A7E4F91DA64DB800FB2ADC /* MemTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7E4F81DA64DB800FB2ADC /* MemTypesViewController.swift */; };
+		F8B001191E3A660200EEDE8E /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B001181E3A660200EEDE8E /* Padding.swift */; };
 		F8D8E9D51E1D8E860082235C /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8E9D41E1D8E860082235C /* Expression.swift */; };
 		F8ED69311DAED19100B83F66 /* SimpleMemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED69301DAED19100B83F66 /* SimpleMemViewController.swift */; };
 		F8FCC37F1DBE1B2700F5AB38 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FCC37E1DBE1B2700F5AB38 /* Category.swift */; };
@@ -60,6 +61,7 @@
 		F89E53851E043A4100B153AF /* SimpleMem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMem.swift; sourceTree = "<group>"; };
 		F89E53871E043F7D00B153AF /* Mem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mem.swift; sourceTree = "<group>"; };
 		F8A7E4F81DA64DB800FB2ADC /* MemTypesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemTypesViewController.swift; path = "Атипичное Сельцо/MemTypesViewController.swift"; sourceTree = "<group>"; };
+		F8B001181E3A660200EEDE8E /* Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
 		F8D8E9D41E1D8E860082235C /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		F8E001DB1DE343FE00CD392F /* Атипичное Сельцо-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Атипичное Сельцо-Bridging-Header.h"; path = "Атипичное Сельцо/Атипичное Сельцо-Bridging-Header.h"; sourceTree = "<group>"; };
 		F8ED69301DAED19100B83F66 /* SimpleMemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMemViewController.swift; path = "Атипичное Сельцо/SimpleMemViewController.swift"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				F86C877B1E0BCDE2006BD25C /* Modal.swift */,
 				F845B0581E1CE58C00892173 /* AppState.swift */,
 				F8D8E9D41E1D8E860082235C /* Expression.swift */,
+				F8B001181E3A660200EEDE8E /* Padding.swift */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				F8ED69311DAED19100B83F66 /* SimpleMemViewController.swift in Sources */,
 				F88E80561D99672900E15793 /* LaunchScreenViewController.swift in Sources */,
 				F80ACC631DD37620007A50C6 /* TemplatesTableViewController.swift in Sources */,
+				F8B001191E3A660200EEDE8E /* Padding.swift in Sources */,
 				F8A7E4F91DA64DB800FB2ADC /* MemTypesViewController.swift in Sources */,
 				F88E80401D9939DC00E15793 /* AppDelegate.swift in Sources */,
 				F89D460D1DD4CEC700BABA45 /* TemplateTableViewCell.swift in Sources */,

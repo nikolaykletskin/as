@@ -1,13 +1,12 @@
 class Mem {
     let textFont = "Helvetica Bold"
-    var textPadding = [String: CGFloat]()
+    var textPadding: Padding
     let textPaddingToImageWidthRatio: CGFloat = 0.05
     var image: UIImage
     
     init(image: UIImage) {
         self.image = image
-        let padding = image.size.width * textPaddingToImageWidthRatio
-        self.textPadding = ["horizontal": padding, "vertical": padding]
+        self.textPadding = Padding(imageWidth: image.size.width)
     }
     
     // Recursive getting appropriate font size

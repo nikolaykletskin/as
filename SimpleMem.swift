@@ -12,7 +12,7 @@ class SimpleMem: Mem {
         self.topText = topText
         self.bottomText = bottomText
         super.init(image: image)
-        self.maxTextHeight = (image.size.height - self.textPadding["vertical"]! * 2) / 4
+        self.maxTextHeight = (image.size.height - CGFloat(self.textPadding.vertical) * 2) / 4
         
     }
     
@@ -34,14 +34,14 @@ class SimpleMem: Mem {
     }
     
     private func drawText(text : NSString, fontAttributes: [String : Any], type: textType) {
-        let boundingRect = text.boundingRect(with: CGSize(width: image.size.width - textPadding["horizontal"]! * 2, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: fontAttributes, context: nil)
+        let boundingRect = text.boundingRect(with: CGSize(width: image.size.width - CGFloat(textPadding.horizontal) * 2, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: fontAttributes, context: nil)
         var originPoint = CGPoint()
         
         switch type {
             case .top:
-                originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: textPadding["vertical"]!)
+                originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: CGFloat(textPadding.vertical))
             case .bottom:
-                originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: image.size.height - boundingRect.height - textPadding["vertical"]!)
+                originPoint = CGPoint(x: (image.size.width - boundingRect.width) / 2, y: image.size.height - boundingRect.height - CGFloat(textPadding.vertical))
         }
 
         let textRect = CGRect(origin: originPoint, size: CGSize(width: boundingRect.width, height: boundingRect.height))
