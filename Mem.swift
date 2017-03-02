@@ -18,8 +18,8 @@ class Mem {
         
         let boundingRect = text.boundingRect(with: CGSize(width: (img?.size.width)!, height: CGFloat(DBL_MAX)), options: .usesLineFragmentOrigin, attributes: newFontAttributes, context: nil)
         
+        //recursive execution with bigger fontSize
         if (boundingRect.height > maxTextHeight) {
-            //recursive execution with bigger fontSize
             let newFontSize = fontSize - 1
             return getFontSize(text: text, img: img, fontSize: newFontSize, maxTextHeight: maxTextHeight, fontAttributes: fontAttributes)
         }
