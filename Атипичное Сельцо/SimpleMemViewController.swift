@@ -1,7 +1,6 @@
 import UIKit
 import Photos
 
-
 class SimpleMemViewController: MemViewController, UIImagePickerControllerDelegate {
 
     // MARK: Properties

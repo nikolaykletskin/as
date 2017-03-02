@@ -1,12 +1,5 @@
-//
-//  CustomTextField.swift
-//  Атипичное Сельцо
-//
-//  Created by Nikolay Kletskin on 10/18/16.
-//  Copyright © 2016 Nikolay Kletskin. All rights reserved.
-//
-
 import UIKit
+
 class CustomTextField: UITextField {
     let cornerRadius : CGFloat = 5
     let borderWidth : CGFloat = 3

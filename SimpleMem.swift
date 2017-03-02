@@ -1,7 +1,7 @@
 class SimpleMem: Mem {
     var topText: NSString
     var bottomText: NSString
-    var maxTextHeight: CGFloat
+    var maxTextHeight: CGFloat = CGFloat()
     
     enum textType {
         case top
@@ -13,7 +13,6 @@ class SimpleMem: Mem {
         self.bottomText = bottomText
         super.init(image: image)
         self.maxTextHeight = image.size.height / 4 - self.textPadding["vertical"]! * 2
-        
     }
     
     private func getFontAttributes(text: NSString)-> [String: Any] {

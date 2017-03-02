@@ -1,29 +1,31 @@
-//
-//  CategoriesTableViewController.swift
-//  Атипичное Сельцо
-//
-//  Created by Николай Клёцкин on 10/21/16.
-//  Copyright © 2016 Nikolay Kletskin. All rights reserved.
-//
-
 import UIKit
 
 class CategoriesTableViewController: UITableViewController {
     
     // MARK: Properties
-    var categories = [Category]()
+    var categories = [Dictionary<String, Any>]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.nDarkColor()
-        loadCategories()
-    }
-    
-    func loadCategories() {
-        let lohImage = UIImage(named: "loh")
-        let people = Category(name: "Люди", previewImage: lohImage)
-        categories += [people]
+        
+        categories = [
+            [
+                "name": "Люди",
+                "previewImage": "loh",
+                "templates": [
+                    ["name": "Ебать ты лох", "image": "loh"]
+                ]
+            ],
+            [
+                "name": "Сельцо",
+                "previewImage": "pogrebok",
+                "templates": [
+                    ["name": "Погребок", "image": "pogrebok"]
+                ]
+            ]
+        ]
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,21 +39,15 @@ class CategoriesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return CategoryTableViewCell.height
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
         
-        cell.backgroundColor = UIColor.nDarkThreeColor()
-        
         let category = categories[indexPath.row]
-        cell.nameLabel.text = category.name
-        
-        cell.nameLabel.textColor = UIColor.nCoolGreyColor()
-        // TODO: change font
-        //cell.nameLabel.font = UIFont(name: (cell.nameLabel.font?.fontName)!, size: 20)
-        cell.previewImageView.image = category.previewImage
+        cell.nameLabel.text = category["name"] as! String?
+        cell.previewImageView.image = UIImage(named: category["previewImage"]! as! String)
         
         return cell
     }
@@ -59,6 +55,8 @@ class CategoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "TemplatesTableViewController") as! TemplatesTableViewController
+        
+        nextViewController.templates = categories[indexPath.row]["templates"] as! [Dictionary<String, String>]
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     

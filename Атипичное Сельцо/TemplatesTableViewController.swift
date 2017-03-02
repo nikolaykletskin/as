@@ -1,28 +1,12 @@
-//
-//  TemplatesTableViewController.swift
-//  Атипичное Сельцо
-//
-//  Created by Nikolay Kletskin on 11/9/16.
-//  Copyright © 2016 Nikolay Kletskin. All rights reserved.
-//
-
 import UIKit
 
 class TemplatesTableViewController: UITableViewController {
     
-    var templates = [Template]()
+    var templates = [Dictionary<String, String>]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.nDarkColor()
-        loadTemplates()
-    }
-    
-    func loadTemplates() {
-        let lohImage = UIImage(named: "loh")
-        let loh = Template(name: "Ебать ты лох", previewImage: lohImage)
-        templates += [loh]
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,22 +19,14 @@ class TemplatesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return TemplateTableViewCell.height
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TemplateTableViewCell", for: indexPath) as! TemplateTableViewCell
-        
-        cell.backgroundColor = UIColor.nDarkThreeColor()
-        
         let template = templates[indexPath.row]
-        cell.nameLabel.text = template.name
-        
-        cell.nameLabel.textColor = UIColor.nCoolGreyColor()
-        // TODO: change font
-        // cell.nameLabel.font = UIFont(name: (cell.nameLabel.font?.fontName)!, size: 20)
-        cell.previewImageView.image = template.previewImage
-        
+        cell.nameLabel.text = template["name"]
+        cell.previewImageView.image = UIImage(named: template["image"]!)
         return cell
     }
     
@@ -65,7 +41,7 @@ class TemplatesTableViewController: UITableViewController {
         }
         
         if (nextViewController != nil) {
-            nextViewController?.image = templates[indexPath.row].previewImage!
+            nextViewController?.image = UIImage(named: templates[indexPath.row]["image"]!)
             self.navigationController?.pushViewController(nextViewController!, animated: true)
         }
     }

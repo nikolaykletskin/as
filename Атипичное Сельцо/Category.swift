@@ -1,11 +1,3 @@
-//
-//  Category.swift
-//  Атипичное Сельцо
-//
-//  Created by Nikolay Kletskin on 10/24/16.
-//  Copyright © 2016 Nikolay Kletskin. All rights reserved.
-//
-
 import UIKit
 
 class Category {

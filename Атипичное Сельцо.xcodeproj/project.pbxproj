@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B53E1B9ADB3FC0C9349AA69 /* Pods_________________.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB475773BF71337514FF6AE4 /* Pods_________________.framework */; };
 		F80ACC631DD37620007A50C6 /* TemplatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ACC621DD37620007A50C6 /* TemplatesTableViewController.swift */; };
+		F81B07161E6816A80001D8CD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81B07151E6816A80001D8CD /* CustomTableViewCell.swift */; };
 		F84140561E1AD3C600867CDA /* ExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84140551E1AD3C600867CDA /* ExpressionViewController.swift */; };
 		F845B0591E1CE58C00892173 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845B0581E1CE58C00892173 /* AppState.swift */; };
 		F845B05B1E1CE9D400892173 /* MemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845B05A1E1CE9D400892173 /* MemViewController.swift */; };
@@ -39,6 +40,7 @@
 		CB475773BF71337514FF6AE4 /* Pods_________________.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_________________.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7F07A54810CBED89AA779B /* Pods-Атипичное Сельцо.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Атипичное Сельцо.release.xcconfig"; path = "Pods/Target Support Files/Pods-Атипичное Сельцо/Pods-Атипичное Сельцо.release.xcconfig"; sourceTree = "<group>"; };
 		F80ACC621DD37620007A50C6 /* TemplatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemplatesTableViewController.swift; path = "Атипичное Сельцо/TemplatesTableViewController.swift"; sourceTree = "<group>"; };
+		F81B07151E6816A80001D8CD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		F84140551E1AD3C600867CDA /* ExpressionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpressionViewController.swift; path = "Атипичное Сельцо/ExpressionViewController.swift"; sourceTree = "<group>"; };
 		F845B0581E1CE58C00892173 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F845B05A1E1CE9D400892173 /* MemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				F8FCC3801DBE235C00F5AB38 /* CategoryTableViewCell.swift */,
 				F89D460C1DD4CEC700BABA45 /* TemplateTableViewCell.swift */,
 				F87976641DB61306009FFC21 /* CustomTextField.swift */,
+				F81B07151E6816A80001D8CD /* CustomTableViewCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			files = (
 				F87976651DB61306009FFC21 /* CustomTextField.swift in Sources */,
 				F84EA4111DECCFD500DC4361 /* CategoriesTableViewController.swift in Sources */,
+				F81B07161E6816A80001D8CD /* CustomTableViewCell.swift in Sources */,
 				F845B0591E1CE58C00892173 /* AppState.swift in Sources */,
 				F88E80521D99445300E15793 /* NAdditions.swift in Sources */,
 				F845B05B1E1CE9D400892173 /* MemViewController.swift in Sources */,
